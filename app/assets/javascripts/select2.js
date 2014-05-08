@@ -1199,8 +1199,13 @@ the specific language governing permissions and limitations under the Apache Lic
                 windowHeight = $window.height(),
                 viewPortRight = $window.scrollLeft() + windowWidth,
                 viewportBottom = $window.scrollTop() + windowHeight,
-                dropTop = offset.top + height,
-                dropLeft = offset.left,
+                
+                // dropTop = offset.top + height,
+                // dropLeft = offset.left,
+
+                dropTop = height,
+                dropLeft = 0,
+
                 enoughRoomBelow = dropTop + dropHeight <= viewportBottom,
                 enoughRoomAbove = (offset.top - dropHeight) >= $window.scrollTop(),
                 dropWidth = $dropdown.outerWidth(false),
@@ -1348,7 +1353,8 @@ the specific language governing permissions and limitations under the Apache Lic
             this.clearDropdownAlignmentPreference();
 
             if(this.dropdown[0] !== this.body.children().last()[0]) {
-                this.dropdown.detach().appendTo(this.body);
+                // this.dropdown.detach().appendTo(this.body);
+                this.dropdown.detach().appendTo(this.container);
             }
 
             // create the dropdown mask if doesn't already exist
